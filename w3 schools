@@ -1,0 +1,21 @@
+CSS is the language we use to style the HTML document
+CSS describes the how HTML elements should be displayed
+Examples
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+background-color:blue
+}
+h1 {
+color:white;
+text-align: center;
+}
+p {
+font-family : verdana;
+font-size:20px;
+}}
+
+
+
