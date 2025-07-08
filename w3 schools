@@ -1,21 +1,149 @@
 CSS is the language we use to style the HTML document
 CSS describes the how HTML elements should be displayed
-Examples
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-body {
-background-color:blue
-}
-h1 {
-color:white;
-text-align: center;
-}
+what is css?
+css is stands for cascading style sheets
+css describes how html elements are describe on screen
+CSS saves a lot of work. It can control the layout of multiple web pages all at once
+External stylesheets are stored in CSS files
+CSS Syntax
+CSS selector
+
+The selector points to the HTML element you want to style.
+
+The declaration block contains one or more declarations separated by semicolons.
+
+Each declaration includes a CSS property name and a value, separated by a colon.
+
+Multiple CSS declarations are separated with semicolons, and declaration blocks are surrounded by curly braces.
+
+Example
+In this example all <p> elements will be center-aligned, with a red text color:
+
 p {
-font-family : verdana;
-font-size:20px;
-}}
+  color: red;
+  text-align: center;
+}
+Example Explained
+p is a selector in CSS (it points to the HTML element you want to style: <p>).
+color is a property, and red is the property value
+text-align is a property, and center is the property value
+
+CSS selectors are used to find the html elements you want to style
+we can divide CSS selectors into five categories
+--> Simple Selectors ->
+(select elements based on name,id,class)
+
+--> Combinator selectors -->
+  select elements based on a specific relationship between them
+
+Pseudo-class selectors -->
+ (select elements based on certain state)
+
+ Psuedo - elements selectors (select and style a part of an element)
+
+ Attribute selectors -->
+ select elements based on attribute or attribute value
+
+The CSS element Selector
+
+The element selector selects HTML elements 
+based on the element name
+
+here all <p> eleemnts on the page will be center - aligned , with a red text color:
+
+p {
+  text-align : center;
+  color:red;
+}
+
+The CSS id selector 
+
+The id selector uses the id attribute of an HTML element to select a specific element 
+
+The id of an element is unique within a page ,
+so the id selector is used to select one unique element
+
+to select an element 
+with a specific id , write a hash(#) character , followed by the id of the element
+
+Note: An id name cannot start with a number!
+
+The CSS class selctor 
+
+The class selector selects HTML elements with a specific attribute.
+To select elements with a specific class , write a period (.) character followed by class name.
+.center{
+  text-align:center;
+  color:red;
+}
+In this example only <p> elements with class=center will be red and center-aligned
+p.center { 
+  text-aligned:center;
+  color:red;
+}
+
+Note: A class name cannot start with a number!
+
+The CSS UNIVERSAL SELECTOR 
+
+The universal selector * selects all HTML elements on the page 
+
+* {
+  text-align:center;
+  color:blue;
+}
+
+The CSS Grouping Selector 
+
+The grouping selctor selects all elements with the same style definitions
+h1 {
+  text-align:center;
+  color:red;
+}
+h2 {
+  text-align: center;
+  color:red;
+}
+p{
+  text-align:center;
+  color:red;
+}
+It will be better to group the selectors, to minimize the code
+To group selectors ,seperate each selector with a comma
+
+h1,h2,p {
+  text-align:center;
+  color:red;
+}
+
+#id -- selctor 
+#firstname -- Example
+Select the element with id="firstname"
+
+.class 
+.intro 
+selects all elements with class = intro
+
+* --> * 
+select all elements 
+
+element p --- select all <p> elements
+element,element,.. div,p  select all <div> elements and all <p> elements
+
+How to add CSS 
+
+when a browser reads a style sheet , it will format the HTML document 
+
+
+HOW To --> I am in
+
+
+
+
+
+
+
+
 
 
 
