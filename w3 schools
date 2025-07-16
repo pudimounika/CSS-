@@ -135,7 +135,638 @@ How to add CSS
 when a browser reads a style sheet , it will format the HTML document 
 
 
-HOW To --> I am in
+HOW To --> 
+Three ways to insert CSS
+external CSS
+Internal CSS
+Inline CSS
+
+External CSS 
+
+with an external style sheet , you can change the look of an entire website by changing just one file
+
+each HTML page must include a reference to the external style sheet file inside the <link> 
+inside the head section
+
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = "stylesheet" href="mystyle.css">
+</head>
+
+<h1> This is a heading </h1>
+<p> This is a paragraph </p>
+
+</body>
+</html>
+
+An external style sheet can be written in any text editor, and must be saved with a .css extension.
+
+The external .css file should not contain any HTML tags.
+
+Here is how the "mystyle.css" file looks:
+
+mystyle.css
+
+body {
+  background-color:lightblue;
+}
+h1 {
+  color:navy;
+  margin-left:20px;
+}
+
+Note: Do not add a space between the property value (20) and the unit (px):
+Incorrect (space): margin-left: 20 px;
+Correct (no space): margin-left: 20px;
+
+Internal css
+
+An Internal style sheet may be used if one single HTML has a unique style
+
+the internal style is defined inside the <style> element inside the head section
+
+Internal styles are defined within the <style> element, inside the <head> section of an HTML page:
+
+<html>
+<head>
+<style>
+  body {
+    background-color:linen;
+  }
+  h1 {
+    color:maroon;
+    margin-left:40px;
+  }
+  </style>
+  </head>
+  <body>
+  <h1> This is a heading </h1>
+  <p> this is a paragraph </p>
+
+  </body>
+  </html>
+
+Inline CSS 
+
+An Inline CSS may be used to apply style for a single element.
+To use inline styles, add the style attribute to the relevant element. The style attribute can contain any CSS property.
+
+<!DOCTYPE html>
+<html>
+<body>
+<h1 style="color:blue;text-align:center;"> This is a heading </h1>
+<p style="color:red"> This is a paragraph </p>
+</body>
+</html>
+
+Multiple Style Sheets
+If some properties have been defined for the same selector (element) in different style sheets, the value from the last read style sheet will be used. 
+
+Assume that an external style sheet has the following style for the <h1> element:
+
+h1 {
+  color: navy;
+}
+
+Then, assume that an internal style sheet also has the following style for the <h1> element:
+
+h1 {
+  color: orange;   
+}
+
+If the internal style is defined after the link to the external style sheet, the <h1> elements will be "orange":
+
+<head>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+<style>
+h1 {
+  color: orange;
+}
+</style>
+</head>
+
+However, if the internal style is defined before the link to the external style sheet, the <h1> elements will be "navy": 
+
+<head>
+<style>
+h1 {
+  color: orange;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+
+
+Cascading Order ;
+
+what style will be used when there is more than one style specified for an HTML element ?
+
+All the styles in a page will cascade into a new virtual style sheet by the following rules 
+where number one has the highest priority
+
+1)Inline style (inside an HTML element)
+2)External and Internal style sheets (in the head section)
+browser default
+
+So an inline style has the highest priority and will override external and internal styles and browser defaults
+
+CSS Comments 
+
+CSS comments are not displayed in the browser , but they can help document your source code.
+
+CSS comments 
+
+comments are used to explain the code , and may help when you edit the source code at a later date.
+
+Comments are ignored by browsers
+
+A css comment is placed inside the  <style>
+and starts with /*  */
+
+p {
+  color:red;
+}
+
+You can add comments wherever you want in the code:
+
+Example
+p {
+  color: red;  /* Set text color to red */
+}
+
+even in the middle of a code
+
+p {
+  color: /*red*/ blue;
+}
+
+comments can also span multiple lines
+
+/* this is a multi-line comment */
+P{
+  color:red;
+}
+
+CSS Errors
+
+Missing Semicolons
+Forgetting a semicolon at the end of a property declaration can break the style rule.
+
+Example
+.bad {
+  color: red
+  background-color: yellow;
+}
+
+Invalid Property Names
+Using a property name that does not exist will simply be ignored by the browser.
+
+Example
+.bad {
+  colr: blue;
+  font-size: 16px;
+}
+
+Invalid Values
+Correct properties but invalid values will also be ignored.
+
+Example
+.bad {
+  width: -100px;
+  color: green;
+}
+
+Unclosed Braces
+If you forget to close a brace }, the entire rule may be ignored.
+
+Example
+.bad {
+  padding: 20px;
+  margin: 10px;
+
+  Extra Colons or Braces
+Typos like extra colons or misplaced braces can cause rules to break.
+
+Example
+.bad {
+  color:: blue;
+}
+
+Tips to Avoid CSS Errors
+Use a code editor with syntax highlighting.
+Validate your CSS with a CSS linter or validator.
+Write CSS in small sections and test frequently.
+
+background-color
+background-image
+background-repeat
+background-attachment
+background-position
+background (shorthand property)
+
+Opacity / Transparency
+The opacity property specifies the opacity/transparency of an element. It can take a value from 0.0 - 1.0. The lower value, the more transparent:
+
+CSS background-repeat
+By default, the background-image property repeats an image both horizontally and vertically.
+
+Some images should be repeated only horizontally or vertically, or they will look strange, like this:
+
+Example
+body {
+  background-image: url("gradient_bg.png");
+}
+
+If the image above is repeated only horizontally (background-repeat: repeat-x;), the background will look better:
+
+Example
+body {
+  background-image: url("gradient_bg.png");
+  background-repeat: repeat-x;
+}
+
+Tip: To repeat an image vertically, set background-repeat: repeat-y;
+
+CSS background-repeat: no-repeat
+Showing the background image only once is also specified by the background-repeat property:
+
+Example
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+}
+
+CSS background-position
+The background-position property is used to specify the position of the background image.
+
+Example
+Position the background image in the top-right corner: 
+
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+CSS background-attachment
+
+The background-attachment property specifies whether the background image should scroll or be fixed (will not scroll with the rest of the page):
+<style>
+body {
+  background-image: url("img_tree.png);
+  background-repeat: no-repeat;
+  background-position:right top;
+  margin-right:200px;
+  background-attachment:fixed;
+}
+</style>
+
+
+<style>
+body {
+  background-image: url("img_tree.png");
+  background-repeat: no-repeat;
+  background-position:right top;
+  margin-right:200px;
+  background-attachment:scroll;
+}
+</style>
+
+Use the shorthand property to set the background properties in one declaration:
+
+body {
+  background-color: #fffff;
+  background-image: url("img_tree.png")
+  background-repeat: no-repeat;
+  background-position: right top;
+}
+
+
+body {
+  background: #ffff url("img_tree.png") no-repeat top;
+}
+
+
+background - sets all the background properties in one declaration;
+
+background-attachment: sets whether a background image is fixed or scrolls with the rest of the image
+
+background-clip specifies the painting area 
+of the background
+
+background-color: sets the background color of an element
+
+background-image - sets the background-image of the element
+
+background-origin specifies where the background image is positoned
+
+background-position: sets the starting position  of a background-image
+
+background-repeat sets the starting position of a background-image
+
+background-repeat: set how a background-image will be repeated 
+
+background-size : specifies the size of the background image
+
+CSS borders 
+
+The CSS border properties allow you to specify the style,width,and color an element's border 
+
+
+The border-style property specifies what kind of border to display
+
+dotted - defines a dotted border 
+dashed - defines a dashed border 
+solid - defines a solid border
+double - defines a double border
+groove - Defines a 3D grooved border. The effect depends on the border-color value
+ridge - Defines a 3D ridged border. The effect depends on the border-color value
+inset - Defines a 3D inset border. The effect depends on the border-color value
+outset - Defines a 3D outset border. The effect depends on the border-color value
+none - defines no border
+hidden - defines a hidden border;
+
+CSS Border width
+
+The border-width property specifies the width of four borders
+The width can be set as specific size
+(in px,pt,cm,em) or by using one of the
+three pre-defined values : thin,medium,thick
+
+p.one {
+  border-style:solid;
+  border-width:5px;
+}
+
+p.two {
+  border-style:solid;
+  border-width:medium;
+}
+
+p.three {
+   border-style:solid;
+  border-width:2px;
+}
+
+p.four {
+  border-style:dotted;
+  border-width:thick
+}
+
+BorderColor:
+
+The border-color property is used to set the color of four borders
+
+The color can be set by:
+
+name -- specify a color name like red
+HEX - specify a HEX value like #ff000
+RGB - specify a RGB value like rgb(255,0,0)
+HSL - specify a HSL value like hsl(0,100%,50%)
+
+p.one {
+  border-style:solid;
+  border-color:#ff0000
+}
+
+Border sides
+
+p {
+  border-top-style:dotted;
+  border-right-style:solid;
+  border-bottom-style:dotted;
+  border-left-style:solid;
+}
+
+border-style: dotted solid double;
+top border is dotted
+right and left borders are solid
+bottom border is double
+
+
+CSS Shorthand Border Property 
+
+p {
+  border : 5px solid red;
+}
+
+
+CSS Rounded Borders
+The border-radius property is used to add rounded borders to an element:
+
+p {
+  border: 2px solid red;
+  border-radius: 5px;
+}
+
+border - sets all the border properties in one declaration
+
+border-bottom: sets all the bottom border properties in one declaration
+
+
+border-bottom-color: sets the color of the bottom border
+
+border-bottom-style: sets the style of the bottom border
+
+border-bottom-width: sets the width of the bottom border
+
+border-color: sets the color of the four borders
+
+border-left: sets all the left border properties in one declaration
+
+
+border-left-style: sets the style of the left border
+
+border-left-width: sets the width of the left border
+
+border-radius :
+sets all the four border - radius properties for rounded corners
+
+border-left : sets all the left border properties in one declaration
+
+border-left-color: sets the color of the left border
+
+border-left-width: sets the width of the left border
+
+border-radius sets all the four border- radius properties for rounded corners
+
+border-right: sets all the right border properties in one declaration
+
+border-right-color: sets the color of the right border
+
+border-right-style:sets the style of the right border
+
+border-right-width: sets the width of the right border
+
+border-style: sets the style of the four borders
+
+border-top: sets all the top border properties 
+in one declaration
+
+border-top-color: sets the color of the top border
+
+border-top-style: sets the style of the top 
+   border
+
+border-top-width: sets the width of the top border
+
+border-width: sets the width of the four borders
+
+CSS margins
+margins are used to create space around elements , outside of any defined borders
+
+CSS margins
+
+the css margin properties are used to create space around elements, outside of any defined
+borders
+
+with css, you have full control over the margins.these are properties for setting the margin for each side of an element (top,right,bottom,and left)
+
+margin - individual sides
+
+css has properties for specifying the margin for each side of an element
+
+margin-top
+margin-right
+margin-bottom
+margin-left
+
+All the margin properties can have the following values
+
+auto - browser calculates the margin
+
+length - specifies a margin in px,pt,cm,etc
+
+% - specifies a margin in % of the width of the containing element
+
+inherit - specifies that the margin should be inherited from the parent element
+
+
+margin: 25px 50px 75px 100px
+
+
+margin -- A shorthand property for setting all the margin properties in one declaration
+
+margin-bottom - sets the bottom margin of the element 
+
+margin-left - sets the bottom margin of the element 
+
+margin-right - sets the bottom margin of the element
+
+margin - top: sets the bottom margin of the element
+
+
+Sometimes two margins collapse into a single margin.
+
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins.
+
+This does not happen on left and right margins! Only top and bottom margins!
+
+Demonstration of margin collapse:
+
+h1 {
+  margin: 0 0 50px 0;
+}
+
+h2 {
+  margin: 20px 0 0 0;
+}
+
+In the example above, the <h1> element has a bottom margin of 50px and the <h2> element has a top margin set to 20px.
+
+Common sense would seem to suggest that the vertical margin between the <h1> and the <h2> would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+
+CSS padding 
+
+padding is used to create space around an element's content, inside of any defined borders
+
+CSS Padding
+The CSS padding properties are used to generate space around an element's content, inside of any defined borders.
+
+With CSS, you have full control over the padding. There are properties for setting the padding for each side of an element (top, right, bottom, and left).
+
+CSS has properties for specifying the padding for each side of an element:
+
+padding-top
+padding-right
+padding-bottom
+padding-left
+
+ll the padding properties can have the following values:
+
+length - specifies a padding in px, pt, cm, etc.
+% - specifies a padding in % of the width of the containing element
+inherit - specifies that the padding should be inherited from the parent element
+
+Padding and Element Width
+The CSS width property specifies the width of the element's content area. The content area is the portion inside the padding, border, and margin of an element (the box model).
+
+So, if an element has a specified width, the padding added to that element will be added to the total width of the element. This is often an undesirable result.
+
+Here, the <div> element is given a width of 300px. However, the actual width of the <div> element will be 350px (300px + 25px of left padding + 25px of right padding):
+
+div {
+  width: 300px;
+  padding: 25px;
+}
+
+padding - a shorthand property for setting all the padding properties in one declaration
+
+padding-bottom sets the bottom padding of an element
+
+padding-left	Sets the left padding of an element
+padding-right	Sets the right padding of an element
+padding-top	Sets the top padding of an element
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
